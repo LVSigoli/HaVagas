@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Nome -->
         <EditText
             android:id="@+id/etNome"
             android:hint="Nome completo"
