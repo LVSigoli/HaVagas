@@ -77,45 +77,32 @@ private lateinit var binding: ActivityMainBinding
     }
 
     private fun updateEducationFields(education: String) {
-        val layoutExtra = binding.layoutFormacaoExtra
-        layoutExtra.removeAllViews()
-        educationExtraView.clear()
+
+        binding.etAno.visibility = View.GONE
+        binding.etInstituicao.visibility = View.GONE
+        binding.etTitulo.visibility = View.GONE
+        binding.etOrientador.visibility = View.GONE
 
         when (education) {
             "Fundamental", "Médio" -> {
-                val etAno = EditText(this).apply {
-                    hint = "Ano de formatura"
-                    inputType = android.text.InputType.TYPE_CLASS_NUMBER
-                }
-                layoutExtra.addView(etAno)
-                educationExtraView.add(etAno)
+                binding.etAno.hint = "Ano de formatura"
+                binding.etAno.visibility = View.VISIBLE
             }
             "Graduação", "Especialização" -> {
-                val etAno = EditText(this).apply {
-                    hint = "Ano de conclusão"
-                    inputType = android.text.InputType.TYPE_CLASS_NUMBER
-                }
-                val etInst = EditText(this).apply { hint = "Instituição" }
-                layoutExtra.addView(etAno)
-                layoutExtra.addView(etInst)
-                educationExtraView.addAll(listOf(etAno, etInst))
+                binding.etAno.hint = "Ano de conclusão"
+                binding.etAno.visibility = View.VISIBLE
+                binding.etInstituicao.visibility = View.VISIBLE
             }
             "Mestrado", "Doutorado" -> {
-                val etAno = EditText(this).apply {
-                    hint = "Ano de conclusão"
-                    inputType = android.text.InputType.TYPE_CLASS_NUMBER
-                }
-                val etInst = EditText(this).apply { hint = "Instituição" }
-                val etTitulo = EditText(this).apply { hint = "Título da monografia" }
-                val etOrientador = EditText(this).apply { hint = "Orientador" }
-                layoutExtra.addView(etAno)
-                layoutExtra.addView(etInst)
-                layoutExtra.addView(etTitulo)
-                layoutExtra.addView(etOrientador)
-                educationExtraView.addAll(listOf(etAno, etInst, etTitulo, etOrientador))
+                binding.etAno.hint = "Ano de conclusão"
+                binding.etAno.visibility = View.VISIBLE
+                binding.etInstituicao.visibility = View.VISIBLE
+                binding.etTitulo.visibility = View.VISIBLE
+                binding.etOrientador.visibility = View.VISIBLE
             }
         }
     }
+
 
     private fun clearFields(){
         binding.etNome.text.clear()

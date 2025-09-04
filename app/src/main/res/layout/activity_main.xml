@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <!-- Email -->
         <EditText
             android:id="@+id/etEmail"
             android:hint="E-mail"
@@ -87,12 +86,45 @@
             android:layout_height="wrap_content"
             android:entries="@array/formacao_array"/>
 
-
         <LinearLayout
             android:id="@+id/layoutFormacaoExtra"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/etAno"
+                android:hint="Ano de formatura"
+                android:inputType="number"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <EditText
+                android:id="@+id/etInstituicao"
+                android:hint="Instituição"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <EditText
+                android:id="@+id/etTitulo"
+                android:hint="Título da monografia"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etOrientador"
+                android:hint="Orientador"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
 
 
         <EditText
