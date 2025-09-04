@@ -1,21 +1,18 @@
 package com.lucas.sigoli.sc3020428.haVagas
 
-
-
-
-import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.DatePicker
 import android.widget.EditText
+import android.widget.AdapterView
+import android.app.DatePickerDialog
 
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.lucas.sigoli.sc3020428.haVagas.databinding.ActivityMainBinding
 import java.util.Calendar
+import androidx.core.view.ViewCompat
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
+import androidx.core.view.WindowInsetsCompat
+import androidx.appcompat.app.AppCompatActivity
+import com.lucas.sigoli.sc3020428.haVagas.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +31,7 @@ private lateinit var binding: ActivityMainBinding
         setContentView(binding.root)
 
         applyInsets()
+        setupListenners()
 
     }
 
@@ -64,10 +62,6 @@ private lateinit var binding: ActivityMainBinding
 
         binding.btnSalvar.setOnClickListener { save() }
         binding.btnLimpar.setOnClickListener { clearFields() }
-    }
-
-    private fun save() {
-
     }
 
     private fun showDatePicker() {
@@ -140,6 +134,39 @@ private lateinit var binding: ActivityMainBinding
         binding.etVagas.text.clear()
     }
 
+    private fun save (){
+        val nome = binding.etNome.text.toString()
+        val email = binding.etEmail.text.toString()
+        val receberEmail = if (binding.cbReceberEmail.isChecked) "Sim" else "Não"
+        val telefone = binding.etTelefone.text.toString()
+        val tipoTel = when (binding.rgTelefone.checkedRadioButtonId) {
+            binding.rbResidencial.id -> "Residencial"
+            binding.rbComercial.id -> "Comercial"
+            else -> "Não informado"
+        }
+        val celular = if (binding.cbAddCelular.isChecked) binding.etCelular.text.toString() else "Não informado"
+        val sexo = binding.spSexo.selectedItem.toString()
+        val data = binding.etNascimento.text.toString()
+        val formacao = binding.spFormacao.selectedItem.toString()
+        val extras = educationExtraView.joinToString { (it as EditText).text.toString() }
+        val vagas = binding.etVagas.text.toString()
+
+        val resumo = """
+            Nome: $nome
+            E-mail: $email
+            Receber e-mails: $receberEmail
+            Telefone: $telefone ($tipoTel)
+            Celular: $celular
+            Sexo: $sexo
+            Data de nascimento: $data
+            Formação: $formacao ($extras)
+            Vagas de interesse: $vagas
+        """.trimIndent()
+
+        AlertDialog.Builder(this)
+            .setTitle("Dados cadastrais").setMessage(resumo)
+            .setPositiveButton("ok", null).show()
+    }
 
 
 }
