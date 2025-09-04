@@ -73,7 +73,7 @@ private lateinit var binding: ActivityMainBinding
         DatePickerDialog(this, { _, year, month, dayOfMonth ->
             val selectedDate = "%02d/%02d/%04d".format(dayOfMonth, month + 1, year)
             binding.etNascimento.setText(selectedDate)
-        },year, month, day )
+        },year, month, day ).show()
     }
 
     private fun updateEducationFields(education: String) {

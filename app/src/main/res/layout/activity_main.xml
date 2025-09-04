@@ -42,9 +42,20 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <RadioButton android:id="@+id/rbResidencial" android:text="Residencial" android:layout_height="100dp" android:layout_width="1dp"/>
-            <RadioButton android:id="@+id/rbComercial" android:text="Comercial" android:layout_height="100dp" android:layout_width="1dp"/>
+
+            <RadioButton
+                android:id="@+id/rbResidencial"
+                android:text="Residencial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/rbComercial"
+                android:text="Comercial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </RadioGroup>
+
 
 
         <CheckBox
