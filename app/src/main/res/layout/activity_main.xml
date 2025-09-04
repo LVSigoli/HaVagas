@@ -12,14 +12,18 @@
         <EditText
             android:id="@+id/etNome"
             android:hint="Nome completo"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|textNoSuggestions"
+            android:importantForAutofill="no"
+            android:privateImeOptions="disableSpellCheck|noAccessoryAction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/etEmail"
             android:hint="E-mail"
-            android:inputType="textEmailAddress"
+            android:inputType="textEmailAddress|textNoSuggestions"
+            android:importantForAutofill="no"
+            android:privateImeOptions="disableSpellCheck|noAccessoryAction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -29,11 +33,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-
         <EditText
             android:id="@+id/etTelefone"
             android:hint="Telefone"
-            android:inputType="phone"
+            android:inputType="phone|textNoSuggestions"
+            android:importantForAutofill="no"
+            android:privateImeOptions="disableSpellCheck|noAccessoryAction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -56,8 +61,6 @@
                 android:layout_height="wrap_content"/>
         </RadioGroup>
 
-
-
         <CheckBox
             android:id="@+id/cbAddCelular"
             android:text="Adicionar telefone celular"
@@ -67,11 +70,12 @@
         <EditText
             android:id="@+id/etCelular"
             android:hint="Celular"
-            android:inputType="phone"
+            android:inputType="phone|textNoSuggestions"
             android:visibility="gone"
+            android:importantForAutofill="no"
+            android:privateImeOptions="disableSpellCheck|noAccessoryAction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
 
         <Spinner
             android:id="@+id/spSexo"
@@ -79,17 +83,16 @@
             android:layout_height="wrap_content"
             android:entries="@array/sexo_array"/>
 
-
         <EditText
             android:id="@+id/etNascimento"
             android:hint="Data de nascimento"
             android:focusable="false"
             android:clickable="true"
-            android:inputType="none"
+            android:inputType="none|textNoSuggestions"
+            android:importantForAutofill="no"
+            android:privateImeOptions="disableSpellCheck|noAccessoryAction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-
 
         <Spinner
             android:id="@+id/spFormacao"
@@ -103,50 +106,54 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <EditText
                 android:id="@+id/etAno"
                 android:hint="Ano de formatura"
-                android:inputType="number"
-                android:visibility="gone"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                android:privateImeOptions="disableSpellCheck|noAccessoryAction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
 
             <EditText
                 android:id="@+id/etInstituicao"
                 android:hint="Instituição"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+                android:inputType="text"
+            android:importantForAutofill="no"
+            android:privateImeOptions="disableSpellCheck|noAccessoryAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/etTitulo"
                 android:hint="Título da monografia"
-                android:visibility="gone"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                android:privateImeOptions="disableSpellCheck|noAccessoryAction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/etOrientador"
                 android:hint="Orientador"
-                android:visibility="gone"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                android:privateImeOptions="disableSpellCheck|noAccessoryAction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
         </LinearLayout>
-
-
 
         <EditText
             android:id="@+id/etVagas"
             android:hint="Vagas de interesse"
-            android:inputType="textMultiLine"
+            android:inputType="textMultiLine|textNoSuggestions"
             android:lines="3"
             android:gravity="top"
+            android:importantForAutofill="no"
+            android:privateImeOptions="disableSpellCheck|noAccessoryAction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
 
         <LinearLayout
             android:orientation="horizontal"

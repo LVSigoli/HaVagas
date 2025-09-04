@@ -121,7 +121,7 @@ private lateinit var binding: ActivityMainBinding
         binding.etVagas.text.clear()
     }
 
-    private fun save (){
+    private fun save() {
         val nome = binding.etNome.text.toString()
         val email = binding.etEmail.text.toString()
         val receberEmail = if (binding.cbReceberEmail.isChecked) "Sim" else "Não"
@@ -135,24 +135,39 @@ private lateinit var binding: ActivityMainBinding
         val sexo = binding.spSexo.selectedItem.toString()
         val data = binding.etNascimento.text.toString()
         val formacao = binding.spFormacao.selectedItem.toString()
-        val extras = educationExtraView.joinToString { (it as EditText).text.toString() }
+
+
+        val ano = binding.etAno.text.toString()
+        val instituicao = binding.etInstituicao.text.toString()
+        val titulo = binding.etTitulo.text.toString()
+        val orientador = binding.etOrientador.text.toString()
+
+        val extras = listOfNotNull(
+            if (ano.isNotEmpty()) "Ano: $ano" else null,
+            if (instituicao.isNotEmpty()) "Instituição: $instituicao" else null,
+            if (titulo.isNotEmpty()) "Título: $titulo" else null,
+            if (orientador.isNotEmpty()) "Orientador: $orientador" else null
+        ).joinToString(", ")
+
         val vagas = binding.etVagas.text.toString()
 
         val resumo = """
-            Nome: $nome
-            E-mail: $email
-            Receber e-mails: $receberEmail
-            Telefone: $telefone ($tipoTel)
-            Celular: $celular
-            Sexo: $sexo
-            Data de nascimento: $data
-            Formação: $formacao ($extras)
-            Vagas de interesse: $vagas
-        """.trimIndent()
+        Nome: $nome
+        E-mail: $email
+        Receber e-mails: $receberEmail
+        Telefone: $telefone ($tipoTel)
+        Celular: $celular
+        Sexo: $sexo
+        Data de nascimento: $data
+        Formação: $formacao ($extras)
+        Vagas de interesse: $vagas
+    """.trimIndent()
 
         AlertDialog.Builder(this)
-            .setTitle("Dados cadastrais").setMessage(resumo)
-            .setPositiveButton("ok", null).show()
+            .setTitle("Dados cadastrais")
+            .setMessage(resumo)
+            .setPositiveButton("ok", null)
+            .show()
     }
 
 
