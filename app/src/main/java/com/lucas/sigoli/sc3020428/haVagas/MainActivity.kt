@@ -5,6 +5,7 @@ package com.lucas.sigoli.sc3020428.haVagas
 
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -41,5 +42,42 @@ private lateinit var binding: ActivityMainBinding
         }
     }
 
+    private fun setupListenners(){
+
+        binding.cbAddCelular.setOnCheckedChangeListener { _, isChecked ->
+            binding.etCelular.visibility = if (isChecked) View.VISIBLE else View.GONE
+        }
+
+        binding.etNascimento.setOnClickListener { showDatePicker() }
+
+        binding.spFormacao.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
+                updateEducationFields(binding.spFormacao.selectedItem.toString())
+            }
+
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        binding.btnSalvar.setOnClickListener { save() }
+        binding.btnLimpar.setOnClickListener { clear() }
+    }
+
+    private fun clear() {
+        TODO("Not yet implemented")
+    }
+
+    private fun save() {
+        TODO("Not yet implemented")
+    }
+
+    private fun showDatePicker() {
+
+    }
+
+    private fun updateEducationFields(toString: String) {}
+
 
 }
+
+
