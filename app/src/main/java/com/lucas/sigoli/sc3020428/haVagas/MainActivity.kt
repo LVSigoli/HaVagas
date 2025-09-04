@@ -3,16 +3,18 @@ package com.lucas.sigoli.sc3020428.haVagas
 
 
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.DatePicker
 
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.lucas.sigoli.sc3020428.haVagas.databinding.ActivityMainBinding
-
+import java.util.Calendar
 
 
 class MainActivity : AppCompatActivity() {
@@ -72,7 +74,15 @@ private lateinit var binding: ActivityMainBinding
     }
 
     private fun showDatePicker() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
 
+        DatePickerDialog(this, { _, year, month, dayOfMonth ->
+            val selectedDate = "%02d/%02d/%04d".format(dayOfMonth, month + 1, year)
+            binding.etNascimento.setText(selectedDate)
+        },year, month, day )
     }
 
     private fun updateEducationFields(toString: String) {}
