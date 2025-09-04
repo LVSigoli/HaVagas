@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.DatePicker
+import android.widget.EditText
 
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -85,7 +86,46 @@ private lateinit var binding: ActivityMainBinding
         },year, month, day )
     }
 
-    private fun updateEducationFields(toString: String) {}
+    private fun updateEducationFields(education: String) {
+        val layoutExtra = binding.layoutFormacaoExtra
+        layoutExtra.removeAllViews()
+        educationExtraView.clear()
+
+        when (education) {
+            "Fundamental", "Médio" -> {
+                val etAno = EditText(this).apply {
+                    hint = "Ano de formatura"
+                    inputType = android.text.InputType.TYPE_CLASS_NUMBER
+                }
+                layoutExtra.addView(etAno)
+                educationExtraView.add(etAno)
+            }
+            "Graduação", "Especialização" -> {
+                val etAno = EditText(this).apply {
+                    hint = "Ano de conclusão"
+                    inputType = android.text.InputType.TYPE_CLASS_NUMBER
+                }
+                val etInst = EditText(this).apply { hint = "Instituição" }
+                layoutExtra.addView(etAno)
+                layoutExtra.addView(etInst)
+                educationExtraView.addAll(listOf(etAno, etInst))
+            }
+            "Mestrado", "Doutorado" -> {
+                val etAno = EditText(this).apply {
+                    hint = "Ano de conclusão"
+                    inputType = android.text.InputType.TYPE_CLASS_NUMBER
+                }
+                val etInst = EditText(this).apply { hint = "Instituição" }
+                val etTitulo = EditText(this).apply { hint = "Título da monografia" }
+                val etOrientador = EditText(this).apply { hint = "Orientador" }
+                layoutExtra.addView(etAno)
+                layoutExtra.addView(etInst)
+                layoutExtra.addView(etTitulo)
+                layoutExtra.addView(etOrientador)
+                educationExtraView.addAll(listOf(etAno, etInst, etTitulo, etOrientador))
+            }
+        }
+    }
 
 
 }
