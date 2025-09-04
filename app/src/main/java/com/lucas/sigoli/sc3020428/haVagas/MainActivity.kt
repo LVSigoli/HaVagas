@@ -63,15 +63,11 @@ private lateinit var binding: ActivityMainBinding
         }
 
         binding.btnSalvar.setOnClickListener { save() }
-        binding.btnLimpar.setOnClickListener { clear() }
-    }
-
-    private fun clear() {
-        TODO("Not yet implemented")
+        binding.btnLimpar.setOnClickListener { clearFields() }
     }
 
     private fun save() {
-        TODO("Not yet implemented")
+
     }
 
     private fun showDatePicker() {
@@ -126,6 +122,24 @@ private lateinit var binding: ActivityMainBinding
             }
         }
     }
+
+    private fun clearFields(){
+        binding.etNome.text.clear()
+        binding.etEmail.text.clear()
+        binding.cbReceberEmail.isChecked = false
+        binding.etTelefone.text.clear()
+        binding.rgTelefone.clearCheck()
+        binding.cbAddCelular.isChecked = false
+        binding.etCelular.text.clear()
+        binding.etCelular.visibility = View.GONE
+        binding.spSexo.setSelection(0)
+        binding.etNascimento.setText("")
+        binding.spFormacao.setSelection(0)
+        binding.layoutFormacaoExtra.removeAllViews()
+        educationExtraView.clear()
+        binding.etVagas.text.clear()
+    }
+
 
 
 }
